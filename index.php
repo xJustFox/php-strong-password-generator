@@ -1,7 +1,8 @@
 <?php 
-    include __DIR__.'/partials/function.php';
-    if (isset($_GET['psw_leng']) && $_GET['psw_leng'] != '' ) {
-
+    if (isset($_GET['psw_leng']) && $_GET['psw_leng'] != '' && $_GET['psw_leng'] >= 4) {
+        session_start();
+        $_SESSION['psw_leng'] = $_GET['psw_leng'];
+        header('Location: ./password.php ');
     }
 ?>
 
@@ -20,8 +21,8 @@
             <button type="submit">Genera</button>
         </form>
 
-        <?php if (isset($_GET['psw_leng']) && $_GET['psw_leng'] != '') { ?>            
-            <h4><?php echo $_GET['psw_leng'] >= 4 ? pswGen($_GET['psw_leng']) : "Inserisci un numero maggiore di 4"?></h4>
+        <?php if (isset($_GET['psw_leng']) && $_GET['psw_leng'] != '' && $_GET['psw_leng'] < 4) { ?>            
+            <h4>Inserisci un numero maggiore di 4</h4>
         <?php }?>
     </div>
 </body>
