@@ -1,12 +1,10 @@
 <?php 
     if (isset($_GET['psw_leng']) && $_GET['psw_leng'] != '' ) {
         function pswGen($pswLen) {
-            $lowcase = 'abcdefghijklmnopqrstuvwxyz';
-            $upcase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-            $num = '1234567890';
-            $spcar = '!?~@#-_+<>[]{}';
-
+            $allCar = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!?~@#-_+<>[]{}';
+            $shfl = str_shuffle($allCar);
             
+            return substr($shfl, 0, $pswLen);    
         }
     }
 ?>
@@ -27,7 +25,7 @@
         </form>
 
         <?php if (isset($_GET['psw_leng']) && $_GET['psw_leng'] != '') { ?>            
-            <h1><?php echo $_GET['psw_leng'] >= 4 ? pswGen($_GET['psw_leng']) : "Inserisci un numero maggiore di 4"?></h1>
+            <h4><?php echo $_GET['psw_leng'] >= 4 ? pswGen($_GET['psw_leng']) : "Inserisci un numero maggiore di 4"?></h4>
         <?php }?>
     </div>
 </body>
