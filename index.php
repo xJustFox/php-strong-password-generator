@@ -1,6 +1,11 @@
 <?php 
     if (isset($_GET['psw_leng']) && $_GET['psw_leng'] != '' ) {
-        function pswGen() {
+        function pswGen($pswLen) {
+            $lowcase = 'abcdefghijklmnopqrstuvwxyz';
+            $upcase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            $num = '1234567890';
+            $spcar = '!?~@#-_+<>[]{}';
+
             
         }
     }
@@ -15,11 +20,15 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="text-end m-4 ">
+    <div class="m-4 ">
         <form action="./index.php" method="get">
             <input type="text" name="psw_leng" id="pswLeng" placeholder="Lunghezza Password">
             <button type="submit">Genera</button>
         </form>
+
+        <?php if (isset($_GET['psw_leng']) && $_GET['psw_leng'] != '') { ?>            
+            <h1><?php echo $_GET['psw_leng'] >= 4 ? pswGen($_GET['psw_leng']) : "Inserisci un numero maggiore di 4"?></h1>
+        <?php }?>
     </div>
 </body>
 </html>
