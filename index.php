@@ -1,11 +1,7 @@
 <?php 
+    include __DIR__.'/partials/function.php';
     if (isset($_GET['psw_leng']) && $_GET['psw_leng'] != '' ) {
-        function pswGen($pswLen) {
-            $allCar = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!?~@#-_+<>[]{}';
-            $shfl = str_shuffle($allCar);
-            
-            return substr($shfl, 0, $pswLen);    
-        }
+
     }
 ?>
 
