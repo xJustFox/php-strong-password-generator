@@ -1,6 +1,5 @@
 <?php 
     if (isset($_GET['psw_leng']) && $_GET['psw_leng'] != '' && $_GET['psw_leng'] >= 4) {
-        session_start();
         $_SESSION['psw_leng'] = $_GET['psw_leng'];
         header('Location: ./password.php ');
     }
